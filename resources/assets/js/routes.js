@@ -4,7 +4,7 @@ import ProfileWrapper from './components/profile/ProfileWrapper.vue';
 import Profile from './components/profile/Profile.vue';
 import EditProfile from './components/profile/edit-profile/EditProfile.vue';
 import EditPassword from './components/profile/edit-password/EditPassword.vue';
-import TransactionWrapper from './components/transaction/TransactionWraper.vue';
+import TransactionWrapper from './components/transaction/TransactionWrapper.vue';
 import Transaction from './components/transaction/Transaction.vue';
 import TransactionTopUp from './components/transaction/top-up/TransactionTopUp.vue';
 import TransactionWithdraw from './components/transaction/withdraw/TransactionWithdraw.vue';
