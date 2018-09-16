@@ -76,12 +76,9 @@ class UsersTableSeeder extends Seeder
         )->insert(
             [
                 'user_id' => $customer->id,
-                'title' => 'Mr',
                 'name' => 'Customer',
                 'phone' => '08212233445',
                 'address' => 'Jl Jenderal Sudirman no 10',
-                'date_of_birth' => '1990-01-01',
-                'mother_name' => 'Nisa',
             ]
         );
 
