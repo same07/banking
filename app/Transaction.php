@@ -8,9 +8,10 @@ class Transaction extends Model
 {
     //
     protected $table = 'transactions';
+    protected $fillable = ['number', 'date'];
 
     public function details()
     {
-        return $this->hasMany(TransactionDetail::class);
+        return $this->hasMany(TransactionDetail::class, 'transaction_id');
     }
 }

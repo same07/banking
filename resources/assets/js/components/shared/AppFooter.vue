@@ -2,8 +2,7 @@
 	<footer>
 		<hr>
 		<div class="container">
-			&copy;<span v-once>{{ siteName }}</span> <span v-once>{{ currentYear }},
-			developed by <a href="http://github.com/anindya-dhruba" target="_blank">Anindya Dhruba</a></span>
+			&copy;<span v-once>{{ siteName }}</span> <span v-once>{{ currentYear }} </span>
 		</div>
 	</footer>
 </template>

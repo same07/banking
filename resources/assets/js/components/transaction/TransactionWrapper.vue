@@ -4,13 +4,16 @@
 			<div class="col-12 col-md-3">
 				<nav class="nav flex-column nav-pills mb-4">
 					<router-link :to="{name: 'transaction'}" class="nav-link" activeClass="active" exact>
-						View Dashboard
+						Dashboard
 					</router-link>
 					<router-link :to="{name: 'transaction.topUp'}" class="nav-link" activeClass="active" exact>
-						Top Up
+						Deposit
 					</router-link>
 					<router-link :to="{name: 'transaction.withdraw'}" class="nav-link" activeClass="active" exact>
 						Withdraw
+					</router-link>
+					<router-link :to="{name: 'transaction.transfer'}" class="nav-link" activeClass="active" exact>
+						Transfer
 					</router-link>
                     <router-link :to="{name: 'transaction.mutation'}" class="nav-link" activeClass="active" exact>
 						Mutation

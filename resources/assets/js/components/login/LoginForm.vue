@@ -38,6 +38,7 @@
 
 <script>
 	import {api} from "../../config";
+	import jwtToken from "../../helpers/jwt-token";
 
 	export default {
 		data() {
@@ -56,11 +57,17 @@
 		methods: {
 			login() {
 				this.loading = true;
-				axios.post(api.login, this.form)
+				const parameter = {
+					client_secret : api.clientSecret,
+					grant_type : 'password',
+					client_id : api.clientId,
+					username : this.form.email,
+					password : this.form.password
+				};
+				axios.post(api.login, parameter)
 					.then(res => {
-						this.loading = false;
-						this.$noty.success('Welcome back!');
-						this.$emit('loginSuccess', res.data);
+						jwtToken.setToken(res.data.access_token);
+						this.getProfile();
 					})
 					.catch(err => {
 						(err.response.data.error) && this.$noty.error(err.response.data.error);
@@ -79,6 +86,23 @@
 			clearErrors() {
 				this.error.email = null;
 				this.error.password = null;
+			},
+			getProfile() {
+				axios.get(api.currentUser)
+					.then(res => {
+						this.loading = false;
+						this.$noty.success('Welcome back!');
+						this.$emit('loginSuccess', res.data);
+					})
+					.catch(err => {
+						(err.response.data.error) && this.$noty.error(err.response.data.error);
+
+						(err.response.data.errors)
+							? this.setErrors(err.response.data.errors)
+							: this.clearErrors();
+
+						this.loading = false;
+					});
 			}
 		}
 	}

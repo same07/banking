@@ -8,6 +8,15 @@ import TransactionWrapper from './components/transaction/TransactionWrapper.vue'
 import Transaction from './components/transaction/Transaction.vue';
 import TransactionTopUp from './components/transaction/top-up/TransactionTopUp.vue';
 import TransactionWithdraw from './components/transaction/withdraw/TransactionWithdraw.vue';
+import TransactionTransfer from './components/transaction/transfer/TransactionTransfer.vue';
+import TransactionMutation from './components/transaction/mutation/TransactionMutation.vue';
+import TransactionRequestCard from './components/transaction/request/TransactionRequestCard.vue';
+import Register from './components/register/Register.vue';
+
+import CustomerWrapper from './components/customer/CustomerWrapper.vue';
+import Customer from './components/customer/Customer.vue';
+import CustomerAccount from './components/customer/account/CustomerAccount.vue';
+import CardRequest from './components/customer/card/CardRequest.vue';
 
 export default [
 	{
@@ -20,6 +29,12 @@ export default [
 		path: '/login',
 		name: 'login',
 		component: Login,
+		meta: {requiresGuest: true}
+	},
+	{
+		path: '/register',
+		name: 'register',
+		component: Register,
 		meta: {requiresGuest: true}
 	},
 	{
@@ -75,9 +90,57 @@ export default [
 				meta: {requiresAuth: true}
 			},
 			{
+				path: 'transfer',
+				name: 'transaction.transfer',
+				component: TransactionTransfer,
+				meta: {requiresAuth: true}
+			},
+			{
+				path: 'mutation',
+				name: 'transaction.mutation',
+				component: TransactionMutation,
+				meta: {requiresAuth: true}
+			},
+			{
+				path: 'request_card',
+				name: 'transaction.request_card',
+				component: TransactionRequestCard,
+				meta: {requiresAuth: true}
+			},
+			{
 				path: '*',
 				redirect: {
 					name: 'transaction'
+				}
+			}
+		]
+	},
+	{
+		path : '/customer',
+		component: CustomerWrapper,
+		children : [
+			{
+				path: '',
+				name: 'customer',
+				component: Customer,
+				meta: {requiresAuth: true}
+			},
+			{
+				path: 'account',
+				name: 'customer.account',
+				component: CustomerAccount,
+				meta: {requiresAuth: true}
+			},
+			{
+				path: 'account_request',
+				name: 'customer.account_request',
+				component: CardRequest,
+				meta: {requiresAuth: true}
+			},
+			{
+				path: '*',
+				redirect: {
+					name: 'customer'
 				}
 			}
 		]

@@ -13,7 +13,8 @@ export const UNSET_USER = 'UNSET_USER';
 */
 const initialState = {
 	name: null,
-	email: null
+	email: null,
+	role : null
 };
 
 /*
@@ -25,10 +26,12 @@ const mutations = {
 	[SET_USER](state, payload) {
 		state.name = payload.user.name;
 		state.email = payload.user.email;
+		state.role = payload.user.roles[0].slug
 	},
 	[UNSET_USER](state, payload) {
 		state.name = null;
 		state.email = null;
+		state.role = null;
 	}
 };
 
@@ -54,6 +57,9 @@ const actions = {
 const getters = {
 	isLoggedIn: (state) => {
 		return !!(state.name && state.email);
+	},
+	role: (state) => {
+		return state.role;
 	}
 };
 

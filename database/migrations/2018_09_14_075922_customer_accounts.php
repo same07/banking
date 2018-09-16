@@ -19,7 +19,7 @@ class CustomerAccounts extends Migration
             $table->bigInteger('card_number')->unique();
             $table->date('expired_date');
             $table->integer('pin');
-            $table->enum('status', ['active', 'blocked', 'nonactive']);
+            $table->enum('status', ['active', 'blocked', 'pending']);
             $table->timestamps();
 
             $table->foreign('customer_id')

@@ -3,12 +3,39 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class UserController extends Controller
 {
-	public function show(Request $request)
+	public function show()
 	{
-		return $request->user();
+		$user = Auth::user();
+		$user->customer = $user->customer;
+		$user->roles = $user->roles;
+		return response()->json($user);
+	}
+
+	public function getAccounts()
+	{
+		$user = Auth::user();
+		$accounts = $user->customer->accounts()->get();
+		return $accounts;
+	}
+
+	public function checkPassword(Request $request)
+	{
+		$user = Auth::user();
+        $check = Auth::guard('web')->attempt(
+            [
+                'email' => $user->email,
+                'password' => $request->password
+            ]
+        );
+        
+        if ($check) {
+			return response()->json(['message' => 'success']);
+		}
+		return response()->json(['error' => 'Wrong Password'], 500);
 	}
 
 	public function updateProfile(Request $request)

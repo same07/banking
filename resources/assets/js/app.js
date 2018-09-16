@@ -2,6 +2,9 @@ import $ from 'jquery';
 import Vue from 'vue';
 import VueNoty from 'vuejs-noty';
 import axios from 'axios';
+import VueSweetalert2 from 'vue-sweetalert2';
+import BootstrapVue from 'bootstrap-vue'
+
 
 window.$ = window.jQuery = $;
 window.axios = axios;
@@ -13,7 +16,11 @@ Vue.use(VueNoty, {
 	theme: 'bootstrap-v4',
 	timeout: 3000
 });
+Vue.use(VueSweetalert2);
+Vue.use(BootstrapVue);
 
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 import router from './router';
 import store from './store/index';
 import App from './components/App.vue';
@@ -37,7 +44,7 @@ axios.interceptors.response.use(response => {
 }, error => {
 	let errorResponseData = error.response.data;
 
-	const errors = ["token_invalid", "token_expired", "token_not_provided"];
+	const errors = ["token_invalid", "token_expired", "token_not_provided", "Unauthorized."];
 
 	if (errorResponseData.error && errors.includes(errorResponseData.error)) {
 		store.dispatch('unsetAuthUser')

@@ -168,6 +168,7 @@ return [
          * Package Service Providers...
          */
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+        Czim\Repository\RepositoryServiceProvider::class,
         /*
          * Application Service Providers...
          */

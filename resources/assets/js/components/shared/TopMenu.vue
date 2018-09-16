@@ -14,10 +14,13 @@
 					<router-link v-show="!isLoggedIn" :to="{name: 'login'}" tag="li" class="nav-item" activeClass="active" exact>
 						<a class="nav-link">Login</a>
 					</router-link>
-					<router-link v-show="isLoggedIn" :to="{name: 'profile'}" tag="li" class="nav-item" activeClass="active">
-						<a class="nav-link">Profile</a>
+					<router-link v-show="!isLoggedIn" :to="{name: 'register'}" tag="li" class="nav-item" activeClass="active" exact>
+						<a class="nav-link">Register</a>
 					</router-link>
-					<router-link v-show="isLoggedIn" :to="{name: 'transaction'}" tag="li" class="nav-item" activeClass="active" exact>
+					<router-link v-show="isLoggedIn && role == 'teller-bank'" :to="{name: 'customer'}" tag="li" class="nav-item" activeClass="active">
+						<a class="nav-link">Customer</a>
+					</router-link>
+					<router-link v-show="isLoggedIn && role == 'customer'" :to="{name: 'transaction'}" tag="li" class="nav-item" activeClass="active" exact>
 						<a class="nav-link">Transaction</a>
 					</router-link>
 					<li class="nav-item" v-show="isLoggedIn">
@@ -37,11 +40,12 @@
 	export default {
 		data() {
 			return {
-				siteName: siteName
+				siteName: siteName,
 			}
 		},
 		computed: mapGetters([
-			'isLoggedIn'
+			'isLoggedIn',
+			'role'
 		]),
 		methods: {
 			logout() {

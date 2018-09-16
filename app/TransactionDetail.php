@@ -8,6 +8,7 @@ class TransactionDetail extends Model
 {
     //
     protected $table = 'transaction_details';
+    protected $fillable = ['debit', 'credit', 'customer_account_id'];
 
     public function transaction()
     {
