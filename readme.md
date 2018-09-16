@@ -5,7 +5,7 @@ Starter Boilerplate SPA made with Laravel 5.6, Bootstrap 4, JWT Auth, Vue 2, Vue
 
 ![Laravel Vue SPA](https://media.giphy.com/media/26n3JhU8JqIYlxVCw/giphy.gif)
 
-[Live Demo](https://laravel-vue-spa.herokuapp.com)
+[Live Demo](http://bank.jwsdigital.com/)
 
 ## What's New
  * Upgraded to [Bootstrap 4](http://getbootstrap.com) from [Bootstrap 3](https://getbootstrap.com/docs/3.3)
