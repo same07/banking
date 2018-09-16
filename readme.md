@@ -21,7 +21,7 @@ Starter Boilerplate SPA made with Laravel 5.6, Bootstrap 4, JWT Auth, Vue 2, Vue
 * [Vue Router 3](http://router.vuejs.org)
 * [Vuex 3](http://vuex.vuejs.org)
 * [Axios](https://github.com/mzabriskie/axios)
-* [Authentication with JWT Token](https://github.com/tymondesigns/jwt-auth)
+* [Authentication with Laravel Passport](https://laravel.com/docs/5.6/passport)
 
 ## Installation:
 * Clone the repo
