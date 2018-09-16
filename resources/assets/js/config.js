@@ -1,9 +1,10 @@
 const apiDomain = Laravel.apiDomain + '/api';
+
 export const siteName = Laravel.siteName;
 
 export const api = {
-	clientSecret : 'uSCVtUnO49yEfUFlKrY6vOnqGLbidterN6tXm9Ba',
-	clientId : 2,
+	clientSecret : Laravel.clientSecret,
+	clientId : Laravel.clientId,
 	login: '/oauth/token',
 	register : apiDomain + '/register',
 	checkPassword : apiDomain + '/user/check/password',
