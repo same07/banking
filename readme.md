@@ -30,9 +30,11 @@ Starter Boilerplate SPA made with Laravel 5.6, Bootstrap 4, JWT Auth, Vue 2, Vue
 * `cd` to the repo
 * Run `composer install --no-scripts`
 * Run `php artisan key:generate`
+* Run `php artisan passport:install` copy Client Secret And CLient ID to `.env`
 * Run `php artisan migrate --seed`. A user will be seeded so that you can login, where:
-    * email is: `root@example.com`
-    * password is: `root`
+    * email is: `customer@example.com`
+    * password is: `123456`
+
 * Run `npm install`
 * Run `npm run watch`
 * View the site by 
